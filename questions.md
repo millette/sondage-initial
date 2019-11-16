@@ -4,13 +4,13 @@
 
 ## Encore un _newsletter?_
 
--   Ça ne m'intéresse pas
+-   Ça **ne** m'intéresse pas
 -   Je serais curieux de voir ca
 -   Absolument! On n'a jamais assez d'information de qualité
 
 ## Sujets
 
--   [ ] Nouveautés logiciels libres / open source
+-   [x] Nouveautés logiciels libres / open source
 -   [ ] Nouveautés (Québec) logiciels libres / open source
 -   [ ] Sujets plutôt Free Software
 -   [ ] Sujets plutôt Open Source
@@ -24,9 +24,9 @@
 
 ## Langue
 
--   [ ] Francais
--   [ ] Anglais
--   [ ] Références (liens) dans une autre langue sont ok?
+1.   [ ] Francais
+1.   [ ] Anglais
+1.   [ ] Références (liens) dans une autre langue sont ok?
 
 ## Format
 
@@ -52,4 +52,5 @@
 
 ## Commentaire
 
-Commentaire? Suggestion? N'oubliez pas d'écrire votre nom et email si vous attendez une réponse.
+Commentaire? Suggestion?
+N'oubliez pas d'écrire votre nom et email si vous attendez une réponse.
