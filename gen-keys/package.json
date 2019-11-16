@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "sondage-initial",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "../node_modules/.bin/parcel index.html",
+    "build": "../node_modules/.bin/parcel build --public-url . --no-source-maps --experimental-scope-hoisting index.html"
+  },
+  "license": "AGPL-3.0"
+}
