@@ -17,9 +17,9 @@
   // TODO: implement remote store (jsonstore.io)
 
   // TODO: implement (duh!)
-  const elEnc = async (x) => {
+  const elEnc = (x) => {
     console.log('ENCRYPTING!', x)
-    return x
+    return Promise.resolve(x)
   }
 
   const parser = (textAreas) => ([q, a]) => [
@@ -40,35 +40,40 @@
     return r2
   }
 
-  $form.addEventListener("submit", async (ev) => {
+  $form.addEventListener("submit", (ev) => {
     ev.preventDefault()
     const r2a = fromForm(ev.target)
     // TODO Do something with encrypted version...
-    const r2 = await elEnc(r2a)
-    // console.log(JSON.stringify(r2, null, 2))
-    const div = document.createElement('div')
-    const hr = document.createElement('hr')
-    const h3 = document.createElement('h3')
-    h3.innerText = "Votre réponse"
-    const p = document.createElement('pre')
-    const sl = JSON.stringify(r2a).length
-    const s2 = JSON.stringify(r2).length
-    p.innerText = `Taille (pré-encryption): ${sl}
+    elEnc(r2a)
+    .then((r2) => {
+
+      // console.log(JSON.stringify(r2, null, 2))
+      const div = document.createElement('div')
+      const hr = document.createElement('hr')
+      const h3 = document.createElement('h3')
+      h3.innerText = "Votre réponse"
+      const p = document.createElement('pre')
+      const sl = JSON.stringify(r2a).length
+      const s2 = JSON.stringify(r2).length
+      p.innerText = `Taille (pré-encryption): ${sl}
 Taille (encrypté): ${s2}
 
 ${JSON.stringify(r2a, null, 2)}`
-    div.appendChild(hr)
-    div.appendChild(h3)
-    div.appendChild(p)
-    const elReset = document.createElement("button")
-    elReset.innerText = "Reset"
-    elReset.style.width = "100%" // TODO: move to style.css
-    elReset.addEventListener("click", () => {
-      // FIXME: don't reload page
-      window.location.reload()
-    })
-    div.appendChild(elReset)
+      div.appendChild(hr)
+      div.appendChild(h3)
+      div.appendChild(p)
+      const elReset = document.createElement("button")
+      elReset.innerText = "Reset"
+      elReset.style.width = "100%" // TODO: move to style.css
+      elReset.addEventListener("click", () => {
+        // FIXME: don't reload page
+        window.location.reload()
+      })
+      div.appendChild(elReset)
 
-    $nav.replaceChild(div, $s2)
+      $nav.replaceChild(div, $s2)
+
+
+    })
   })
 })()
