@@ -1,6 +1,7 @@
 node_modules/
 .cache/
 dist/
+dist-start/
 q1.html
 q2.html
 questions-orig.md
