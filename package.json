@@ -1,11 +1,10 @@
 {
   "name": "sondage-initial",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "oy.js",
   "scripts": {
     "dev": "parcel questions.html",
-    "build": "parcel build --public-url . --no-source-maps --experimental-scope-hoisting questions.html",
-    "start": "parcel serve questions.html"
+    "build": "parcel build --public-url . --no-source-maps --experimental-scope-hoisting questions.html"
   },
   "license": "AGPL-3.0",
   "dependencies": {
