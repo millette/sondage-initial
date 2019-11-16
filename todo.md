@@ -1,6 +1,6 @@
 # TODO
 
-## Generate keys
+## Generate keys `gen-keys`
 
 Browser, localhost only:
 
@@ -13,7 +13,7 @@ Browser, localhost only:
 Command-line:
 
 1. edit `questions.md` with your survey
-1. copy public jwk from `Generate keys` in current directory
+1. copy public jwk from `Generate keys` to current directory
 1. generate `questions.html`
 1. `npm run build`
 1. `dist/` directory should contain generated `questions.html`, `main.css` and `style.css` files
@@ -30,7 +30,7 @@ Browser, public web:
 
 Browser, localhost only:
 
-1. copy private jwk from `Generate keys` in current directory
+1. copy private jwk from `Generate keys` to current directory
 1. `npm run build`
 1. `dist/` directory should contain your private survey reader
 1. Launch private (localhost only) web server in `dist/`
