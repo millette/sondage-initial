@@ -4,7 +4,7 @@
   "main": "oy.js",
   "scripts": {
     "dev": "parcel questions.html",
-    "build": "parcel build --public-url . --no-source-maps questions.html",
+    "build": "parcel build --public-url . --no-source-maps --experimental-scope-hoisting questions.html",
     "start": "parcel serve questions.html"
   },
   "license": "AGPL-3.0",
