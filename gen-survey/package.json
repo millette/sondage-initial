@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "sondage-initial-gen-survey",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "../node_modules/.bin/parcel index.html --open"
+  },
+  "license": "AGPL-3.0"
+}
