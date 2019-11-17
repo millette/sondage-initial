@@ -1,12 +1,32 @@
-// import dec from "./dec"
+import dec from "./dec"
 
-/*
-const woot = () => {
-  const str = "U+FoIalg5GxVLnfxIVjb8Grw5eiTN778duceNGBdpwBmum6jb8pMH4k5PPd/jpgqK7/0v7f2UIOji2os9ITxpHp897FKeSX0ZhTgm3Qt5HuCXml4pZbQh/m8XxWhoBdD3oi8Sclaj9jhcnjh9i+oP87semm1hQHw9wSbLdfXZKhMvEdOpbARTK6O7Eof5/96svKnTGZcINLr66YjQDf2BJBlrimqDTYnyatkUYzQ/aDJU930dnCUHMrCgXT4G4JFX17ZlR4eliuRrK89MqsGbgOTK+KAKJ6O3yP6vi6DvNlP/NivIianollqIUPH6N2EmboPpjD0gdfUa85rMy14T0O2hAiSelzc1it2yNdEc7uQp6T/uHcpiv2FwYzlIfVtM8jIbzuYMCLkaN3CjgsuFyE9Wux2ShmoltaZg4fkE++/ioxhMCMegT5qjnmOsrB8y2EJuS1z+PmB9j9oiT+Ldvz+AUZO53Ew/YnzxqPV70qZoijDwwBFLrSyfbBxpAaHrupNMoQK4EcTHSC4WAGXwICODR1hoMpgROZt9PH31rlDl+yXoeFgifRgrAKRvx4bu0OvGLgrJrWDaG11maSVJVue2TWjjCOhi6ThsWDhfHlNdhwGxdBqKE5Gw/7T2qRNhsFwBeiOYRl9ZkY9NXT/8llRH6YbE84FayJJqTXwoOc="
-  return dec().then((x) => x(str))
+console.log('HELLO')
+
+const str = "p+7Nfy6Hwk45nGTfAdqG1Cq0jR7iCM37tIvCgBaVf0Gckir/BdwgSkRosJGdHBN6b1T+yT6uSHlQmxe30czX8f/9Z8rxCxh2dk+PYatvzU3soWmxhIJ5CoXyPFWk1uaD1lOCmV4ICaAFBsJy5+uASQBuG0w8sTj97dVgGjtbHgaFP/SH5pmehbPGnDrhrZq/yfqQFGPY1rn22yY8CZg2OTCKL+OSpyevgUgM+VXCuM83Hehg45NmH9NTspnckFcJYG6BhD2vokZjU/wCPnLRqMx1jctr7DMIYy1+4KPPZZq5UWpQDPLy6mUQgJxD5iw2Df8KttiwqoGqg2GPB+406O6ZaK8pErhORIfXcsERSU5NpqxO799qrpId2yNk6kTZJy1S3O9zVNPZ/gCAMzmxYLIgOHIZp4qmQb05zovm4n6KWXeLJo40udeFm3t/KCrEiGFPuA75FhYSLv4bVEL+PVz09yJraOg1ys6epgMZTsJ7T0r7mt7A1YzINDgE9r3NOvWC/depm3ebbPMo8D67m4Ob++HRfFeBu7Xd23MK6ymJScmg3mopFpZUC0rqoSsL13n+E2/P905qSJztC4ny31KHksfwHjPE9kjqlz0ePS0Xzd7/ydUglqSN2QJctX5uPMGhblZe4CAC/t707fBG1TiGr+3h/pnoH1po8lGWCEk="
+
+const woot = (s) => {
+  console.log('WOOT')
+
+  return dec()
+    .then((x) => {
+      console.log('W2', x)
+      return x(s)
+    })
+    .then((x) => {
+      console.log('W3', x)
+      return x
+    })
 }
 
-woot()
-.then(console.log)
+const done = (x) => {
+  console.log('DONE', x)
+  /*
+  const pre = document.createElement("pre")
+  pre.innerText = JSON.stringify(x, null, 2)
+  document.querySelector("body").appendChild(pre)
+  */
+}
+
+woot(str)
+.then(done)
 .catch(console.error)
-*/
