@@ -16,22 +16,35 @@ const toc = require("rehype-toc")
 const main = require("./rehype-main")
 const asForm = require("./rehype-as-form")
 
+const docConfig = {
+  js: "main.js",
+  css: "style.css",
+  title: "yup", // TODO: extract title from markdown h1
+  language: "fr", // TODO: autodetect language from markdown
+}
+
 const { process } = remark()
-  .use(remark2rehype) // , { fragment: true }
+  .use(remark2rehype)
   .use(sanitize)
   .use(minify)
   .use(asForm)
   .use(slug)
   .use(main)
   .use(toc, { position: "beforebegin", headings: ["h2"] })
-  .use(doc, { js: "main.js", css: "style.css", title: "yup", language: "fr" })
+  .use(doc, docConfig)
   .use(format)
-
   .use(html)
 
 const writer = (c2) => writeFile("questions.html", c2)
 
+const oups = (error) => {
+  if ((error.code === "ENOENT") && error.path) {
+    return console.error(`Did you forget to create ${error.path}? You can use questions-sample.md as a starter.`)
+  }
+  console.error(error)
+}
+
 readFile("questions.md")
   .then(process)
   .then(writer)
-  .catch(console.error)
+  .catch(oups)
