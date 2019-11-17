@@ -21,8 +21,18 @@ npm run dev # will launch default browser
 
 _Command-line_
 
-1. edit `questions.md` with your survey
-1. copy public jwk from `Generate keys` to current directory
+```sh
+cd gen-survey/
+cp questions-sample.md questions.md # Use as template if needed
+edit questions.md # Replace "edit" with your prefered editor
+copy /PATH/TO/SAVE/public-jwk.json . # replace /PATH/TO/SAVE/ with path from `Generate keys` step
+npm run dev # will launch default browser
+# CTRL-C on the command-line when satisfied
+npm run build # Production build in dist/
+```
+
+1. edit `questions.md` with your survey (use `questions-sample.md` as a template)
+1. copy public-jwk.json from `Generate keys` to current directory
 1. generate `questions.html`
 1. `npm run build`
 1. `dist/` directory should contain generated `questions.html`, `main.css` and `style.css` files
@@ -39,7 +49,7 @@ _Browser, public web_
 
 _Browser, localhost only_
 
-1. copy private jwk from `Generate keys` to current directory
+1. copy private-jwk.json from `Generate keys` to current directory
 1. `npm run build`
 1. `dist/` directory should contain your private survey reader
 1. Launch private (localhost only) web server in `dist/`
