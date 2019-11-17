@@ -1,16 +1,25 @@
 # TODO
 
+From the project directory (where the file you're reading is), follow these steps.
+
 ## Generate keys `gen-keys`
 
-Browser, localhost only:
+_Browser, localhost only_
+
+```sh
+cd gen-keys/
+npm run dev # will launch default browser
+# click on both keys in the browser to save them
+# CTRL-C on the command-line when both keys are saved
+```
 
 1. generate key pair
-1. export private jwk (manually save to json file)
 1. export public jwk (manually save to json file)
+1. export private jwk (manually save to json file)
 
 ## Write and generate survey
 
-Command-line:
+_Command-line_
 
 1. edit `questions.md` with your survey
 1. copy public jwk from `Generate keys` to current directory
@@ -20,7 +29,7 @@ Command-line:
 
 ## Host survey
 
-Browser, public web:
+_Browser, public web_
 
 1. Copy `dist/` directory to web server
 1. Configure web server
@@ -28,7 +37,7 @@ Browser, public web:
 
 ## Read answers
 
-Browser, localhost only:
+_Browser, localhost only_
 
 1. copy private jwk from `Generate keys` to current directory
 1. `npm run build`
