@@ -22,3 +22,7 @@ nav pre {
   white-space: pre-wrap;
   max-width: 15rem;
 }
+
+.ping {
+  background: yellow;
+}
