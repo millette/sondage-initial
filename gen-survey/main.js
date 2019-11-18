@@ -1,5 +1,10 @@
+// npm
+const nanoid = require('nanoid')
+
 // self
 import enc from "./enc"
+
+const jsonStoreIo = process.env.JSONSTOREIO
 
 const $nav = document.querySelector('nav')
 const $form = document.querySelector('main > form')
@@ -43,9 +48,10 @@ const fromForm = (target) => {
 $form.addEventListener("submit", (ev) => {
   ev.preventDefault()
   const r2a = fromForm(ev.target)
-  // TODO Do something with encrypted version...
   elEnc(r2a)
   .then((r2) => {
+
+    const id = nanoid(8)
 
     // console.log(JSON.stringify(r2, null, 2))
     const div = document.createElement('div')
@@ -57,6 +63,7 @@ $form.addEventListener("submit", (ev) => {
     const s2 = JSON.stringify(r2).length
     p.innerText = `Taille (pré-encryption): ${sl}
 Taille (encrypté): ${s2}
+id: ${id}
 
 ${JSON.stringify(r2, null, 2)}`
     div.appendChild(hr)
