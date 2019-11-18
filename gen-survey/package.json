@@ -5,24 +5,25 @@
   "version": "0.0.0",
   "scripts": {
     "gen": "node oy",
-    "deps": "../node_modules/.bin/dependency-check --no-dev .",
+    "deps": "../node_modules/.bin/dependency-check --no-dev --ignore-module nanoid .",
     "dev": "../node_modules/.bin/parcel questions.html --open",
     "build": "../node_modules/.bin/parcel build --public-url . --no-source-maps --experimental-scope-hoisting questions.html"
   },
   "license": "AGPL-3.0",
   "dependencies": {
-    "remark": "^11.0.2",
-    "remark-rehype": "^5.0.0",
-    "rehype-stringify": "^6.0.1",
+    "hastscript": "^5.1.1",
+    "nanoid": "^2.1.7",
     "rehype-document": "^3.1.0",
-    "rehype-minify-whitespace": "^3.0.0",
     "rehype-format": "^3.0.0",
+    "rehype-minify-whitespace": "^3.0.0",
     "rehype-sanitize": "^3.0.0",
     "rehype-slug": "^2.0.3",
+    "rehype-stringify": "^6.0.1",
     "rehype-toc": "^2.2.2",
+    "remark": "^11.0.2",
+    "remark-rehype": "^5.0.0",
+    "unist-builder": "^2.0.2",
     "unist-util-find-after": "^2.0.4",
-    "unist-util-visit-parents": "^3.0.1",
-    "hastscript": "^5.1.1",
-    "unist-builder": "^2.0.2"
+    "unist-util-visit-parents": "^3.0.1"
   }
 }
