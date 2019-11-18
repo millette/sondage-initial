@@ -1,5 +1,5 @@
 // npm
-const nanoid = require('nanoid')
+import nanoid from 'nanoid'
 
 // self
 import enc from "./enc"
@@ -19,9 +19,6 @@ $nav.appendChild($s2)
 $s2.addEventListener("click", () => $submit.click())
 $submit.style.display = "none"
 
-// TODO: implement remote store (jsonstore.io)
-
-// TODO: implement (duh!)
 const elEnc = (x) => {
   console.log('ENCRYPTING!', x)
   return enc().then((ya) => ya(JSON.stringify(x)))
@@ -49,35 +46,49 @@ $form.addEventListener("submit", (ev) => {
   ev.preventDefault()
   const r2a = fromForm(ev.target)
   elEnc(r2a)
-  .then((r2) => {
+  .then((re2) => {
+    const responseId = nanoid(8)
+    const elU1 = `https://www.jsonstore.io/${jsonStoreIo}/keys/${responseId}`
+    const elU2 = `https://www.jsonstore.io/${jsonStoreIo}/responses/${responseId}`
 
-    const id = nanoid(8)
+    return Promise.all([
+      fetch(elU1, {
+        headers: { 'Content-type': 'application/json' },
+        method: "POST",
+        body: Date.now()
+      }),
+      fetch(elU2, {
+        headers: { 'Content-type': 'application/json' },
+        method: "POST",
+        body: JSON.stringify(re2)
+      })
+    ])
+  })
+  .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
+  .then(([voila1, voila2]) => {
+    if (!voila1.ok || !voila2.ok) throw new Error("Problem saving response.")
+    setTimeout(() => $nav.querySelector("div").className = "", 1500)
+    if ($nav.querySelector("#form-reset")) return $nav.querySelector("div").className = "ping"
 
-    // console.log(JSON.stringify(r2, null, 2))
     const div = document.createElement('div')
+    div.className = "ping"
     const hr = document.createElement('hr')
     const h3 = document.createElement('h3')
-    h3.innerText = "Votre réponse"
-    const p = document.createElement('pre')
-    const sl = JSON.stringify(r2a).length
-    const s2 = JSON.stringify(r2).length
-    p.innerText = `Taille (pré-encryption): ${sl}
-Taille (encrypté): ${s2}
-id: ${id}
+    h3.innerText = "Réponses transmises"
 
-${JSON.stringify(r2, null, 2)}`
-    div.appendChild(hr)
-    div.appendChild(h3)
-    div.appendChild(p)
     const elReset = document.createElement("button")
+    elReset.id = "form-reset"
     elReset.innerText = "Reset"
     elReset.style.width = "100%" // TODO: move to style.css
-    elReset.addEventListener("click", () => {
-      // FIXME: don't reload page
-      window.location.reload()
-    })
+    elReset.addEventListener("click", $form.reset)
+
+    div.appendChild(hr)
+    div.appendChild(h3)
+
     div.appendChild(elReset)
-    $nav.replaceChild(div, $s2)
+    // $nav.replaceChild(div, $s2)
+    $nav.appendChild(div)
+
   })
   .catch((e) => {
     // whole response was probably larger than 430 (??) characters
