@@ -1,4 +1,4 @@
-# TODO
+# From Markdown to HTML survey with encrypted responses
 
 From the project directory (where the file you're reading is), follow these steps.
 
