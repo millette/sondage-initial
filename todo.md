@@ -21,7 +21,7 @@ _Command-line_
 cd gen-survey/
 cp questions-sample.md questions.md # Use as template if needed
 edit questions.md # Replace "edit" with your prefered editor
-copy /PATH/TO/SAVE/public-jwk.json . # replace /PATH/TO/SAVE/ with path from `Generate keys` step
+cp /PATH/TO/SAVE/public-jwk.json . # replace /PATH/TO/SAVE/ with path from `Generate keys` step
 npm run init # run once and follow instructions to create your .env file
 npm run gen # Generate html form from markdown; rerun when you edit the markdown
 npm run dev # will launch default browser
@@ -29,7 +29,7 @@ npm run dev # will launch default browser
 npm run build # Production build in dist/
 ```
 
-## Host survey
+### Host survey
 
 _Browser, public web_
 
@@ -41,8 +41,11 @@ _Browser, public web_
 
 _Browser, localhost only_
 
-1. copy private-jwk.json from `Generate keys` to current directory
-1. `npm run build`
-1. `dist/` directory should contain your private survey reader
-1. Launch private (localhost only) web server in `dist/`
-1. Visit localhost url and view private survey responses
+```sh
+cd gen-reader/
+cp ../gen-survey/.env . # copy JSONSTOREIO token
+cp /PATH/TO/SAVE/private-jwk.json . # replace /PATH/TO/SAVE/ with path from `Generate keys` step
+npm run dev # will launch default browser
+# CTRL-C on the command-line when satisfied
+npm run build # Production build in dist/ - ALWAYS KEEP PRIVATE!
+```
