@@ -12,6 +12,7 @@
   },
   "license": "AGPL-3.0",
   "dependencies": {
+    "gh-pages": "^2.1.1",
     "got": "^9.6.0",
     "hastscript": "^5.1.1",
     "nanoid": "^2.1.7",
