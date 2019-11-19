@@ -13,10 +13,6 @@ npm run dev # will launch default browser
 # CTRL-C on the command-line when both keys are saved
 ```
 
-1. generate key pair
-1. export public jwk (manually save to json file)
-1. export private jwk (manually save to json file)
-
 ## Write and generate survey
 
 _Command-line_
@@ -26,16 +22,12 @@ cd gen-survey/
 cp questions-sample.md questions.md # Use as template if needed
 edit questions.md # Replace "edit" with your prefered editor
 copy /PATH/TO/SAVE/public-jwk.json . # replace /PATH/TO/SAVE/ with path from `Generate keys` step
+npm run init # run once and follow instructions to create your .env file
+npm run gen # Generate html form from markdown; rerun when you edit the markdown
 npm run dev # will launch default browser
 # CTRL-C on the command-line when satisfied
 npm run build # Production build in dist/
 ```
-
-1. edit `questions.md` with your survey (use `questions-sample.md` as a template)
-1. copy public-jwk.json from `Generate keys` to current directory
-1. generate `questions.html`
-1. `npm run build`
-1. `dist/` directory should contain generated `questions.html`, `main.css` and `style.css` files
 
 ## Host survey
 
