@@ -6,7 +6,7 @@
   "scripts": {
     "init": "node init-store",
     "gen": "node oy",
-    "deps": "../node_modules/.bin/dependency-check --no-dev --ignore-module nanoid .",
+    "deps": "../node_modules/.bin/dependency-check . init-store.js  --no-dev --ignore-module nanoid",
     "dev": "../node_modules/.bin/parcel questions.html --open",
     "build": "../node_modules/.bin/parcel build --public-url . --no-source-maps --experimental-scope-hoisting questions.html"
   },
