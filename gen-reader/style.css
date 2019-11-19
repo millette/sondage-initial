@@ -6,3 +6,8 @@ body {
 pre {
   white-space: pre-wrap;
 }
+
+ol#responses > li {
+  margin: 0.5rem 0;
+  cursor: pointer
+}
