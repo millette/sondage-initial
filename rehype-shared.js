@@ -8,7 +8,7 @@ const format = require('rehype-format')
 const html = require('rehype-stringify')
 
 // self
-const asForm = require("../rehype-as-form")
+const asForm = require("./rehype-as-form")
 
 const docConfig = {
   js: "main.js",
@@ -17,11 +17,11 @@ const docConfig = {
   language: "fr", // TODO: autodetect language from markdown
 }
 
-const pre = () => remark()
+const pre = ({formConfig} = {}) => remark()
   .use(remark2rehype)
   .use(sanitize)
   .use(minify)
-  .use(asForm)
+  .use(asForm(formConfig))
 
 const post = (it) => it
   .use(doc, docConfig)
