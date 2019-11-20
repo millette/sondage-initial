@@ -4,12 +4,7 @@ dist/
 dist-start/
 wrk/
 .env
-q1.html
-q2.html
-questions-orig.md
-questions.md
-questions.html
+index.html
 public-jwk.json
 private-jwk.json
-questions-alright.html
-questions-ok.html
+questions.md
