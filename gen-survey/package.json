@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "scripts": {
     "init": "node init-store",
+    "deploy": "gh-pages -d dist",
     "gen": "node oy",
-    "deps666": "../node_modules/.bin/dependency-check . init-store.js  --no-dev --ignore-module nanoid",
     "dev": "../node_modules/.bin/parcel index.html --open",
     "build": "../node_modules/.bin/parcel build --public-url . --no-source-maps --experimental-scope-hoisting index.html"
   },
