@@ -18,9 +18,9 @@ npm run dev # will launch default browser
 _Command-line_
 
 ```sh
-cd gen-survey/
 cp questions-sample.md questions.md # Use as template if needed
 edit questions.md # Replace "edit" with your prefered editor
+cd gen-survey/
 cp /PATH/TO/SAVE/public-jwk.json . # replace /PATH/TO/SAVE/ with path from `Generate keys` step
 npm run init # run once and follow instructions to create your .env file
 npm run gen # Generate html form from markdown; rerun when you edit the markdown
