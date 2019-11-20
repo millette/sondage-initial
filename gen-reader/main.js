@@ -26,7 +26,7 @@ fetch(elU1)
         if (ac > bc) return -1
         if (ac < bc) return 1
       })
-      .map(({ id, createdAt }) => ({ id, createdAt: new Date(createdAt) }))
+      .map(({ id, createdAt }) => ({ id, createdAt: new Date(createdAt).toISOString() }))
       .forEach(({ id, createdAt }) => {
         const el = document.createElement("li")
         el.dataset.id = id
@@ -63,4 +63,4 @@ dec()
   .catch(console.error)
 
 loadResponses()
-  .catch(console,error)
+  .catch(console.error)
