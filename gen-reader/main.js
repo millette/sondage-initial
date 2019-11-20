@@ -5,9 +5,34 @@ const elU1 = `https://www.jsonstore.io/${jsonStoreIo}/keys`
 
 const $elReload = document.querySelector("#reload")
 const $elResponses = document.querySelector("#responses")
-const $elResponseId = document.querySelector("#response-id")
-const $elResponse = document.querySelector("#response")
 
+const blankForm = () => {
+  document.querySelectorAll("main input").forEach((el) => {
+    el.disabled = true
+    el.checked = false
+  })
+
+  const $ta = document.querySelector("main textarea")
+  $ta.disabled = true
+  $ta.innerText = ""
+}
+
+blankForm()
+
+const hydrate = (xyz) => {
+  j = JSON.parse(xyz)
+
+  for (const q in j) {
+    if (typeof j[q] === "string") {
+      const $el = document.querySelector(`textarea[name=${q}]`)
+      $el.innerText = j[q]
+    } else {
+      const $el = document.querySelectorAll(`input[name=${q}]`)
+      if (!Array.isArray(j[q])) j[q] = [j[q]]
+      j[q].forEach((n) => $el[n - 1].checked = true)
+    }
+  }
+}
 
 const loadResponses = () =>
 fetch(elU1)
@@ -38,16 +63,21 @@ fetch(elU1)
 $elReload.addEventListener("click", (ev) => {
   ev.preventDefault()
   loadResponses()
-  .catch(console,error)
+  .catch(console.error)
 })
 
 dec()
   .then((elDec) => {
     $elResponses.addEventListener("click", (ev) => {
       ev.preventDefault()
+      if (ev.target.className === "current") return
       const { id } = ev.target.dataset
       if (!id) return
-      $elResponseId.innerText = id
+      blankForm()
+      const hasCurrent = document.querySelector("#responses li.current")
+      if (hasCurrent) hasCurrent.className = ""
+
+      ev.target.className = "current"
       const elU2 = `https://www.jsonstore.io/${jsonStoreIo}/responses/${id}`
       return fetch(elU2)
         .then((res) => res.json())
@@ -55,12 +85,11 @@ dec()
           if (ok) return elDec(result)
           throw new Error('Not ok')
         })
-        .then((xyz) => {
-          $elResponse.innerText = JSON.stringify(JSON.parse(xyz), null, 2)
-        })
+        .then(hydrate)
     })
   })
   .catch(console.error)
 
 loadResponses()
   .catch(console.error)
+
