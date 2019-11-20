@@ -24,7 +24,7 @@ const oups = (error) => {
   console.error(error)
 }
 
-readFile("questions.md")
+readFile("../questions.md")
   .then(process)
   .then(writer)
   .catch(oups)
