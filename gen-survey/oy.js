@@ -15,7 +15,7 @@ const { process } = shared.post(shared.pre()
   .use(toc, { position: "beforebegin", headings: ["h2"] })
 )
 
-const writer = (c2) => writeFile("questions.html", c2)
+const writer = (c2) => writeFile("index.html", c2)
 
 const oups = (error) => {
   if ((error.code === "ENOENT") && error.path) {

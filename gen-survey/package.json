@@ -7,8 +7,8 @@
     "init": "node init-store",
     "gen": "node oy",
     "deps666": "../node_modules/.bin/dependency-check . init-store.js  --no-dev --ignore-module nanoid",
-    "dev": "../node_modules/.bin/parcel questions.html --open",
-    "build": "../node_modules/.bin/parcel build --public-url . --no-source-maps --experimental-scope-hoisting questions.html"
+    "dev": "../node_modules/.bin/parcel index.html --open",
+    "build": "../node_modules/.bin/parcel build --public-url . --no-source-maps --experimental-scope-hoisting index.html"
   },
   "license": "AGPL-3.0",
   "dependencies": {
