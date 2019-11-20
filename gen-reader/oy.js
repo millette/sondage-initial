@@ -7,7 +7,7 @@ const shared = require("../rehype-shared")
 
 const { process } = shared.post(shared.pre({ formConfig: { prefix: true, noForm: true } }).use(main))
 
-const writer = (c2) => writeFile("questions.html", c2)
+const writer = (c2) => writeFile("index.html", c2)
 
 const oups = (error) => {
   if ((error.code === "ENOENT") && error.path) {
