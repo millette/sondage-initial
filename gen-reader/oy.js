@@ -5,7 +5,7 @@ const { readFile, writeFile } = require('fs').promises
 const main = require("./rehype-main")
 const shared = require("../rehype-shared")
 
-const { process } = shared.post(shared.pre({ formConfig: { noForm: true } }).use(main))
+const { process } = shared.post(shared.pre({ formConfig: { prefix: true, noForm: true } }).use(main))
 
 const writer = (c2) => writeFile("questions.html", c2)
 
