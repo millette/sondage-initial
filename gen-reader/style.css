@@ -22,7 +22,17 @@ pre {
   white-space: pre-wrap;
 }
 
-ol#responses > li {
+#responses > li {
   margin: 0.5rem 0;
+  padding: 0.1rem;
   cursor: pointer
+}
+
+li.current {
+  /*background: yellow;*/
+  font-weight: bold;
+}
+
+li.current::after {
+  content: " >";
 }
