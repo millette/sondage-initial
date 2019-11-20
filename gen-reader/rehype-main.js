@@ -5,7 +5,13 @@ const h = require('hastscript')
 
 function main() {
   return function transformer(tree) {
-    return u('root', [h('main', tree.children)])
+    return u('root', [
+      h('nav', [
+        h('button', {id: "reload"}, "Reload"),
+        h('ol', {id:"responses"})
+      ]),
+      h('main', tree.children)
+    ])
   }
 }
 
