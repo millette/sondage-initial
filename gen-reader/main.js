@@ -1,3 +1,5 @@
+'use strict'
+
 import dec from "./dec"
 
 const jsonStoreIo = process.env.JSONSTOREIO
@@ -7,6 +9,10 @@ const $elReload = document.querySelector("#reload")
 const $elResponses = document.querySelector("#responses")
 
 const blankForm = () => {
+  document.querySelectorAll("main li.highlight").forEach((el) => {
+    el.className = ""
+  })
+
   document.querySelectorAll("main input").forEach((el) => {
     el.disabled = true
     el.checked = false
@@ -20,7 +26,7 @@ const blankForm = () => {
 blankForm()
 
 const hydrate = (xyz) => {
-  j = JSON.parse(xyz)
+  const j = JSON.parse(xyz)
 
   for (const q in j) {
     if (typeof j[q] === "string") {
@@ -29,7 +35,10 @@ const hydrate = (xyz) => {
     } else {
       const $el = document.querySelectorAll(`input[name=${q}]`)
       if (!Array.isArray(j[q])) j[q] = [j[q]]
-      j[q].forEach((n) => $el[n - 1].checked = true)
+      j[q].forEach((n) => {
+        $el[n - 1].checked = true
+        $el[n - 1].parentNode.parentNode.className = "highlight"
+      })
     }
   }
 }

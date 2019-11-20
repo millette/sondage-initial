@@ -13,12 +13,12 @@ nav {
 
 main {}
 
-textarea {
+main textarea {
   width: 100%;
   height: 6rem;
 }
 
-pre {
+main pre {
   white-space: pre-wrap;
 }
 
@@ -28,11 +28,15 @@ pre {
   cursor: pointer
 }
 
-li.current {
-  /*background: yellow;*/
+nav li.current {
   font-weight: bold;
 }
 
-li.current::after {
-  content: " >";
+nav li.current::after {
+  content: "\00A0>";
+}
+
+.highlight {
+  background: yellow;
+  padding: 0.3rem 0;
 }
