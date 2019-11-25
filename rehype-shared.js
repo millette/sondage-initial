@@ -17,7 +17,7 @@ const docConfig = {
   language: "fr", // TODO: autodetect language from markdown
 }
 
-const pre = ({formConfig} = {}) => remark()
+const pre = ({ formConfig } = {}) => remark()
   .use(remark2rehype)
   .use(sanitize)
   .use(minify)
