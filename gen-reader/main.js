@@ -9,17 +9,9 @@ const $elReload = document.querySelector("#reload")
 const $elResponses = document.querySelector("#responses")
 
 const blankForm = () => {
-  document.querySelectorAll("main li.highlight").forEach((el) => {
-    el.className = ""
-  })
-
-  document.querySelectorAll("main input").forEach((el) => {
-    el.disabled = true
-    el.checked = false
-  })
-
+  document.querySelectorAll("main li.highlight").forEach((el) => el.className = "")
+  document.querySelectorAll("main input").forEach((el) => el.checked = false)
   const $ta = document.querySelector("main textarea")
-  $ta.disabled = true
   $ta.innerText = ""
 }
 
@@ -101,4 +93,3 @@ dec()
 
 loadResponses()
   .catch(console.error)
-
