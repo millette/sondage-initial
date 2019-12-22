@@ -1,16 +1,26 @@
 // npm
 const got = require("got")
 
-got("https://www.jsonstore.io/get-token", { json: true })
+// got("https://www.jsonstore.io/get-token", { json: true })
+// got("https://www.jsonstore.io/get-token").json()
+got("https://www.jsonstore.io/get-token", { responseType: "json" })
   .then(({ body: { token } }) => Promise.all([
     token,
     got.post(`https://www.jsonstore.io/${token}/ready`, {
+      responseType: "json",
+      json: {
+        createdAt: Date.now(),
+        ready: true
+      },
+
+      /*
       json: true,
       body: {
         createdAt: Date.now(),
         ready: true
       },
-    })
+      */
+    }) // .json()
   ]))
   .then(([token, { headers, url, body: { ok, ...rest } }]) => {
     if (!ok) {
