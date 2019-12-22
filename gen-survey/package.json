@@ -13,7 +13,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "got": "^10.1.0",
-    "nanoid": "^2.1.7"
+    "nanoid": "^2.1.8"
   },
   "devDependencies": {
     "gh-pages": "^2.1.1"
